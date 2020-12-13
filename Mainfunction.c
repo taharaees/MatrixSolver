@@ -1,4 +1,28 @@
 #include <stdio.h>
+int subtraction (int r, int c, int arr1[r][c], int arr2[r][c])  // by Muhammad Taha Raees
+{
+	int resarr[r][c];
+	int i,j;
+		for(i=0; i<r; ++i)
+		{
+			for(j=0; j<c; ++j)
+			{
+				resarr[i][j]= arr1[i][j]-arr2[i][j];
+			}
+		}
+		printf("\nSubtraction of two matrices: \n");
+		for(i=0; i<r; ++i)
+        {
+        	for (j=0; j<c; ++j)
+		    {
+                printf("%d   ", resarr[i][j]);
+                if (j==c-1)
+			    {
+                    printf("\n");
+                }
+            }
+        }
+}
 void main()
 {
 	// initialisation of variables
@@ -73,7 +97,7 @@ void main()
 		case 1://checking if subtraction is possible
 			if(r1==r2 && c1==c2)
 			{
-				// function will be called over here, in this case subtraction function will be called
+				subtraction(r1, c1, arr1, arr2);
 			}
 			else
 			{
