@@ -1,32 +1,33 @@
 #include <stdio.h>
-int subtraction (int r, int c, int arr1[r][c], int arr2[r][c])  // by Muhammad Taha Raees
+int subtraction (int r, int c, int arr1[10][10], int arr2[10][10])  // by Muhammad Taha Raees
 {
 	int resarr[r][c];
 	int i,j;
-		for(i=0; i<r; ++i)
+	for(i=0; i<r; ++i)
+	{
+		for(j=0; j<c; ++j)
 		{
-			for(j=0; j<c; ++j)
-			{
-				resarr[i][j]= arr1[i][j]-arr2[i][j];
-			}
+			resarr[i][j]= arr1[i][j]-arr2[i][j];
 		}
-		printf("\nSubtraction of two matrices: \n");
-		for(i=0; i<r; ++i)
-        {
-        	for (j=0; j<c; ++j)
-		    {
-                printf("%d   ", resarr[i][j]);
-                if (j==c-1)
-			    {
-                    printf("\n");
-                }
+	}
+	printf("\nSubtraction of two matrices: \n");
+	for(i=0; i<r; ++i)
+    {
+        for (j=0; j<c; ++j)
+		{
+            printf("%d   ", resarr[i][j]);
+            if (j==c-1)
+			{
+                printf("\n");
             }
         }
+    }
+    return 0;
 }
-void main()
+void main() // By Muhammad Taha Raees
 {
 	// initialisation of variables
-	int arr1[10][10], arr2[10][10], i, j, r1, c1, r2, c2, op, n;
+	int r1, c1, r2, c2, arr1[10][10], arr2[10][10], i, j, op, n;
 	printf("Enter number of matrices u want to enter 1 or 2:");
 	scanf("%d", &n);
 	// Checking how many matrices and prompting input according to that
@@ -97,7 +98,7 @@ void main()
 		case 1://checking if subtraction is possible
 			if(r1==r2 && c1==c2)
 			{
-				subtraction(r1, c1, arr1, arr2);
+				subtraction(r2, c2, arr1, arr2);
 			}
 			else
 			{
@@ -139,5 +140,3 @@ void main()
 			break;
 	}
 }
-
-// by Muhammad Taha Raees
