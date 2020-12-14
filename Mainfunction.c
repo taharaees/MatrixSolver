@@ -224,7 +224,14 @@ void main()      // By Muhammad Taha Raees
 			
 			break;
 		case 10:
-			unit(r1, c1);
+			if (r1==c1)
+			{
+				unit(r1, c1);
+			}
+			else
+			{
+				printf("[ERROR] Row and Column should be same");
+			}
 			break;
 		default:
 			printf("no such operation exists");
