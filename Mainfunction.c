@@ -24,6 +24,13 @@ int subtraction (int r, int c, int arr1[10][10], int arr2[10][10])  // by Muhamm
     }
     return 0;
 }
+int determinant(int arr[10][10]) // By Muhammad Taha Raees
+{
+	int res;
+	res= (arr[0][0]*arr[1][1])-(arr[0][1]*arr[1][0]);
+	printf("\nDeterminant is: %d", res);
+	return res;
+}
 void main() // By Muhammad Taha Raees
 {
 	// initialisation of variables
@@ -78,15 +85,14 @@ void main() // By Muhammad Taha Raees
 	printf("\n0: Add");
 	printf("\n1: Subtract");
 	printf("\n2: Multiply");
-	printf("\n3: Divide");
-	printf("\n4: Conjugate");
-	printf("\n5: Inverse");
-	printf("\n6: Determinant");
-	printf("\n7: Unit matrix");
-	printf("\n8: Transpose");
-	printf("\n9: Singular");
-	printf("\n10: Hemition");
-	printf("\n11: Skew Hemition\n");
+	printf("\n3: Conjugate");
+	printf("\n4: Inverse");
+	printf("\n5: Determinant(only for 2 by 2 matrix)");
+	printf("\n6: Unit matrix");
+	printf("\n7: Transpose");
+	printf("\n8: Singular");
+	printf("\n9: Hemition");
+	printf("\n10: Skew Hemition\n");
 	scanf("%d", &op);
 	// checking conditions, if condition meets, call function
 	switch (op)
@@ -115,7 +121,21 @@ void main() // By Muhammad Taha Raees
 			
 			break;
 		case 5:
-			
+			if (n==1)
+			{
+				if (r1==2 && c1==2)
+				{
+					determinant(arr1);
+				}
+				else
+				{
+					printf("Its not 2 by 2 matrices");
+				}
+			}
+			else
+			{
+				printf("[error]Please enter a single matrix for this operation");
+			}
 			break;
 		case 6:
 			
@@ -130,9 +150,6 @@ void main() // By Muhammad Taha Raees
 			
 			break;
 		case 10:
-			
-			break;
-		case 11:
 			
 			break;
 		default:
