@@ -31,6 +31,29 @@ int determinant(int arr[10][10]) // By Muhammad Taha Raees
 	printf("\nDeterminant is: %d", res);
 	return res;
 }
+int transpose(int r, int c, int arr[10][10]) // By Muhammad Taha Raees
+{
+	int i, j, resarr[r][c];
+	for(i=0; i<r; ++i)
+	{
+		for(j=0; j<c; ++j)
+		{
+			resarr[j][i]= arr[i][j];
+		}
+	}
+	printf("\nTranspose of matrix is: \n");
+	for(i=0; i<r; ++i)
+    {
+        for (j=0; j<c; ++j)
+		{
+            printf("%d   ", resarr[i][j]);
+            if (j==c-1)
+			{
+                printf("\n");
+            }
+        }
+    }
+}
 void main() // By Muhammad Taha Raees
 {
 	// initialisation of variables
@@ -134,13 +157,21 @@ void main() // By Muhammad Taha Raees
 			}
 			else
 			{
-				printf("[error]Please enter a single matrix for this operation");
+				printf("[ERROR]Please enter a single matrix for this operation");
 			}
 			break;
 		case 6:
 			
 			break;
 		case 7:
+			if(n==1)
+			{
+				transpose(r1, c1, arr1);
+			}
+			else
+			{
+				printf("[ERROR] Enter single matric for this operation");
+			}
 			
 			break;
 		case 8:
