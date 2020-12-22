@@ -1,4 +1,40 @@
 #include <stdio.h>
+float inverse(int arr1[10][10])
+{int d,i,j,temp=0;
+float resarr[10][10];
+	d=determinant(arr1);
+ 	temp = arr1[0][0];               
+    arr1[0][0] = arr1[1][1];
+    arr1[1][1] = temp;
+	 arr1[0][1] = arr1[0][1]*-1;  
+    arr1[1][0] = arr1[1][0]*-1;
+
+    for( i=0;i<2;i++){         
+        for( j=0;j<2;j++)
+        {
+		
+            resarr[i][j] = (1/(float)d)*(float)arr1[i][j];
+        }
+    }
+
+    printf("\n\nThe inverse of the matrix is:\n");  
+    for( i=0;i<2;i++){
+        for( j=0;j<2;j++){
+            printf("%f  ",resarr[i][j]);
+        }
+        printf("\n");
+    }
+    return 0;
+}
+int singular(int arr1[10][10])
+{int d;
+			d=determinant(arr1);
+			if(d==0)
+			printf("\n\nThe matrix is singular.\n");
+			else
+			printf("\n\nThe marix isn't singular.\n");
+			
+}
 int subtraction (int r, int c, int arr1[10][10], int arr2[10][10])  // by Muhammad Taha Raees
 {
 	int resarr[r][c];
@@ -150,13 +186,11 @@ void main()      // By Muhammad Taha Raees
 	    printf("\n0: Add");
 	    printf("\n1: Subtract");
 	    printf("\n2: Multiply");
-	    printf("\n3: Conjugate");
-	    printf("\n4: Inverse");
-	    printf("\n5: Determinant(only for 2 by 2 matrix)");
- 	    printf("\n6: Skew Hemition");
-	    printf("\n7: Transpose");
-	    printf("\n8: Singular");
-	    printf("\n9: Hemition");
+	    printf("\n3: Inverse");
+	    printf("\n4: Determinant(only for 2 by 2 matrix)");
+	    printf("\n5: Transpose");
+	    printf("\n6: Singular");
+	    printf("\n7: Symmetry");
 	    scanf("%d", &op);
 	}
 	
@@ -181,12 +215,12 @@ void main()      // By Muhammad Taha Raees
 			
 			break;
 		case 3:
+			if ((r1==2) && (c1==2))
+			inverse(arr1);
+			else printf("error!Eet a 2X2 matrix");
 			
 			break;
 		case 4:
-			
-			break;
-		case 5:
 			if (n==1)
 			{
 				if (r1==2 && c1==2)
@@ -203,10 +237,8 @@ void main()      // By Muhammad Taha Raees
 				printf("[ERROR]Please enter a single matrix for this operation");
 			}
 			break;
-		case 6:
-			
-			break;
-		case 7:
+	
+		case 5:
 			if(n==1)
 			{
 				transpose(r1, c1, arr1);
@@ -217,13 +249,15 @@ void main()      // By Muhammad Taha Raees
 			}
 			
 			break;
+		case 6:
+			if ((r1==2) && (c1==2))
+				singular(arr1);
+			else printf("error!Eet a 2X2 matrix");
+			break;
+		case 7:
+			
+			break;
 		case 8:
-			
-			break;
-		case 9:
-			
-			break;
-		case 10:
 			if (r1==c1)
 			{
 				unit(r1, c1);
