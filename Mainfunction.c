@@ -69,7 +69,8 @@ int determinant(int arr[10][10]) // By Muhammad Taha Raees
 }
 int transpose(int r, int c, int arr[10][10]) // By Muhammad Taha Raees
 {
-	int i, j, resarr[r][c];
+	int i, j, resarr[r][c], *restranspose;
+	restranspose= &resarr[r][c];
 	for(i=0; i<r; ++i)
 	{
 		for(j=0; j<c; ++j)
@@ -89,6 +90,7 @@ int transpose(int r, int c, int arr[10][10]) // By Muhammad Taha Raees
             }
         }
     }
+    return *restranspose;
 }
 int unit(int r, int c)  // By Muhammad Taha Raees
 {
@@ -132,7 +134,7 @@ void main()      // By Muhammad Taha Raees
 	{
 		printf("\nEnter number of rows and colums for the matrices respectively:");
 	    scanf("%d" "%d", &r1, &c1);
-		op=10;
+		op=8;
 	}
 	else
 	{
