@@ -1,4 +1,56 @@
 #include <stdio.h>
+void multiply(int arr1[10][10], int arr2[10][10], int r1, int c1, int r2, int c2) //multiplication function
+{
+	int ans, k, i, j;
+	int sum[10][10];
+	printf("\t\nThe answer for multiplication of above matrices is:\n");
+	for(i=0; i<r1; ++i)
+	{
+		for (j=0; j<c2; ++j)
+		{
+			sum[i][j]=0;
+		}
+	}
+	for(i=0;i<r1;++i)  //multiplying matrices
+	{
+		for(j=0;j<c2;++j)
+		{
+			for(k=0; k<c1; ++k)
+			{
+				sum[i][j] += arr1[i][k] * arr2[k][j];
+			}
+		}
+	}
+	for(i=0; i<r1; ++i)
+	{
+		for(j=0; j<c2; ++j)
+		{
+			printf("\t%d  ", sum[i][j]);
+			if(j==c2-1)
+			printf("\n");
+		}
+	}	
+}//end of function
+
+
+void add(int arr1[10][10], int arr2[10][10], int r1, int c1)//addition function
+{
+	int sum[10][10];
+	int i, j;
+	printf("\t\nThe answer for addition of above matrices is:\n");
+	
+	for(i=0;i<r1;i++)
+	{
+		for(j=0;j<c1;j++)
+		{
+			sum[i][j]=arr1[i][j] + arr2[i][j];
+			printf("%d\t",sum[i][j]);
+		}
+		printf("\n");
+	}
+}//end of function
+
+
 float inverse(int arr1[10][10])
 {int d,i,j,temp=0;
 float resarr[10][10];
@@ -199,9 +251,37 @@ void main()      // By Muhammad Taha Raees
 	// checking conditions, if condition meets, call function
 	switch (op)
 	{
-		case 0:
-			//Kamran yeh tera hai add wala so i left it empty
-			
+		case 0: //checking if addition is possible
+			if(r1==r2 && c1==c2)
+			{
+				for(i=0;i<r1;i++)
+				{
+					printf("\t");
+					for(j=0;j<c1;j++)
+					{
+						printf("%d\t",arr1[i][j]);
+					}
+					printf("\n");
+				}
+				
+				printf("\t\t+");
+				printf("\n");
+		
+				for(i=0;i<r2;i++)
+				{
+					printf("\t");
+					for(j=0;j<c2;j++)
+					{
+						printf("%d\t",arr2[i][j]);
+					}
+					printf("\n");
+				}
+				add(arr1, arr2, r1, c1);//function call
+			}
+			else
+			{
+				printf("addition not possible");
+			}	
 			break;
 		case 1://checking if subtraction is possible
 			if(r1==r2 && c1==c2)
@@ -214,7 +294,38 @@ void main()      // By Muhammad Taha Raees
 			}
 			break;
 		case 2:
-			
+			if(n==1)
+			{	
+				if(r1==c1 && r2==c2)
+				{
+					for(i=0;i<r1;i++)
+					{
+						printf("\t");
+						for(j=0;j<c1;j++)
+						{
+							printf("%d\t",arr1[i][j]);
+						}
+						printf("\n");
+					}
+					printf("\t\t*");
+					printf("\n");
+				
+					for(i=0;i<r2;i++)
+					{
+						printf("\t");
+						for(j=0;j<c2;j++)
+						{
+							printf("%d\t",arr2[i][j]);
+						}
+						printf("\n");
+					}
+					multiply(arr1, arr2, r1, c1, r2, c2);//function call
+				}
+			}	
+			else
+			{
+				printf("multiplication not possible");
+			}
 			break;
 		case 3:
 			if ((r1==2) && (c1==2))
