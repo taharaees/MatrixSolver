@@ -254,28 +254,6 @@ void main()      // By Muhammad Taha Raees
 		case 0: //checking if addition is possible
 			if(r1==r2 && c1==c2)
 			{
-				for(i=0;i<r1;i++)
-				{
-					printf("\t");
-					for(j=0;j<c1;j++)
-					{
-						printf("%d\t",arr1[i][j]);
-					}
-					printf("\n");
-				}
-				
-				printf("\t\t+");
-				printf("\n");
-		
-				for(i=0;i<r2;i++)
-				{
-					printf("\t");
-					for(j=0;j<c2;j++)
-					{
-						printf("%d\t",arr2[i][j]);
-					}
-					printf("\n");
-				}
 				add(arr1, arr2, r1, c1);//function call
 			}
 			else
@@ -295,32 +273,8 @@ void main()      // By Muhammad Taha Raees
 			break;
 		case 2:
 			if(n==1)
-			{	
-				if(r1==c1 && r2==c2)
-				{
-					for(i=0;i<r1;i++)
-					{
-						printf("\t");
-						for(j=0;j<c1;j++)
-						{
-							printf("%d\t",arr1[i][j]);
-						}
-						printf("\n");
-					}
-					printf("\t\t*");
-					printf("\n");
-				
-					for(i=0;i<r2;i++)
-					{
-						printf("\t");
-						for(j=0;j<c2;j++)
-						{
-							printf("%d\t",arr2[i][j]);
-						}
-						printf("\n");
-					}
-					multiply(arr1, arr2, r1, c1, r2, c2);//function call
-				}
+			{
+				multiply(arr1, arr2, r1, c1, r2, c2);//function call
 			}	
 			else
 			{
