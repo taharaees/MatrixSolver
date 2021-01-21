@@ -1,5 +1,5 @@
 #include <stdio.h>
-void multiply(int arr1[10][10], int arr2[10][10], int r1, int c1, int r2, int c2) //multiplication function
+void multiply(int arr1[10][10], int arr2[10][10], int r1, int c1, int r2, int c2) //multiplication function (by kamran)
 {
 	int ans, k, i, j;
 	int sum[10][10];
@@ -33,7 +33,7 @@ void multiply(int arr1[10][10], int arr2[10][10], int r1, int c1, int r2, int c2
 }//end of function
 
 
-void add(int arr1[10][10], int arr2[10][10], int r1, int c1)//addition function
+void add(int arr1[10][10], int arr2[10][10], int r1, int c1)//addition function (by kamran)
 {
 	int sum[10][10];
 	int i, j;
