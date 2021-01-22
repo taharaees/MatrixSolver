@@ -1,4 +1,49 @@
 #include <stdio.h>
+void symmetric(int r1,int c1,int arr1[10][10])  // Anum Aamir
+{int i,j,sym,resarr[10][10];
+	for(i=0;i<r1;i++)
+    {
+        for(j=0;j<c1;j++)
+        {
+            
+            resarr[i][j] = arr1[j][i];
+        }
+    }
+
+    sym= 1;
+    for(i=0;i<r1 && sym;i++)
+    {
+        for(j=0;j<c1;j++)
+        {   
+            if(arr1[i][j] != resarr[i][j])
+            {
+                sym= 0;
+                break;
+            }
+        }
+    }
+
+    
+    if(sym== 1)
+    {
+        printf("This matrix is a Symmetric matrix: \n");
+
+        for(i=0;i<r1;i++)
+        {
+            for(j=0;j<c1;j++)
+            {
+                printf("%d  ", arr1[i][j]);
+            }
+
+            printf("\n");
+        }
+    }
+    else
+    {
+        printf("This matrix is not a Symmetric matrix.");
+    }
+}
+
 void multiply(int arr1[10][10], int arr2[10][10], int r1, int c1, int r2, int c2) //multiplication function (by kamran)
 {
 	int ans, k, i, j;
@@ -51,7 +96,7 @@ void add(int arr1[10][10], int arr2[10][10], int r1, int c1)//addition function 
 }//end of function
 
 
-float inverse(int arr1[10][10])
+float inverse(int arr1[10][10])  //Anum Aamir
 {int d,i,j,temp=0;
 float resarr[10][10];
 	d=determinant(arr1);
@@ -78,7 +123,7 @@ float resarr[10][10];
     }
     return 0;
 }
-int singular(int arr1[10][10])
+int singular(int arr1[10][10])  //Anum  Aamir
 {int d;
 			d=determinant(arr1);
 			if(d==0)
@@ -322,6 +367,11 @@ void main()      // By Muhammad Taha Raees
 			else printf("error!Eet a 2X2 matrix");
 			break;
 		case 7:
+					if(n==1)
+			{
+				symmetric(r1,c1,arr1);
+			}
+			else printf("Error! Enter a single matrix.");
 			
 			break;
 		case 8:
