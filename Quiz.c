@@ -11,7 +11,7 @@ void main()
 	FILE *fp;
 	int sol1[2][2], sol2[2][2], sol3[2][2];
 	fp= fopen("quiz.txt", "r");
-	if(fp == NULL)
+	if(fp == NULL) 
    {
       printf("Error!");   
       exit(1);             
