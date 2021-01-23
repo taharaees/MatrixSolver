@@ -1,6 +1,7 @@
 #include <stdio.h>
 void symmetric(int r1,int c1,int arr1[10][10])  // Anum Aamir
-{int i,j,sym,resarr[10][10];
+{
+    int i,j,sym,resarr[10][10];
 	for(i=0;i<r1;i++)
     {
         for(j=0;j<c1;j++)
