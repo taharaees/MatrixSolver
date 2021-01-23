@@ -67,7 +67,7 @@ void main()
 	gets(s.roll);
 	printf("\n\nQ1.");
 	printf("\n");
-	// SHowing question1
+	// Showing question1
 	for(i=0;i<2;i++)
     { 
         for(j=0;j<2;j++)
@@ -101,7 +101,6 @@ void main()
 
         printf("\n");
     }
-    newarr[2][2]=add(mat1,mat2,2,2);
     int count=0;
     for(i=0;i<2;i++)
     {
@@ -111,7 +110,7 @@ void main()
     		count++;
 		}
 	}
-    fprintf("\nyour marks for this question are: %d\n",count);
+    
     printf("\n\nQ2.");
 	printf("\n");
 	// SHowing question2
@@ -149,7 +148,6 @@ void main()
         printf("\n");
     }
     int r2=2,c2=2;
-    int newarr1[2][2]=subtraction(mat1,mat2,r2,c2);
     int count2=0;
     for(i=0;i<2;i++)
     {
@@ -159,7 +157,7 @@ void main()
     		count2++;
 		}
 	}
-    fprintf("\nyour marks for this question are: %d\n",count2);
+    
     
 	
 	fp= fopen("quiz.txt", "w");
@@ -170,6 +168,8 @@ void main()
    }
    fprintf(fp, "%s", s.name);
    fprintf(fp,"\n");
-   fprintf(fp, "%d", s.roll); 
+   fprintf(fp, "%d", s.roll);
+   fprintf(fp, "\nyour marks for this question are: %d\n",count);
+   fprintf(fp, "\nyour marks for this question are: %d\n",count2); 
 	fclose(fp);
 }
