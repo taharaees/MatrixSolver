@@ -1,6 +1,6 @@
  #include <stdio.h>
 #include <stdlib.h>
-void add(int arr1[10][10], int arr2[10][10], int r1, int c1)//addition function (by kamran)
+int add(int arr1[10][10], int arr2[10][10], int r1, int c1)//addition function (by kamran)
 {
 	int sum[10][10];
 	int i, j;
@@ -15,6 +15,8 @@ void add(int arr1[10][10], int arr2[10][10], int r1, int c1)//addition function 
 		}
 		printf("\n");
 	}
+	int *resarray=&sum[i][j];
+	return *resarray;
 }//end of function
 int subtraction (int r, int c, int arr1[10][10], int arr2[10][10])  // by Muhammad Taha Raees
 {
@@ -39,28 +41,24 @@ int subtraction (int r, int c, int arr1[10][10], int arr2[10][10])  // by Muhamm
             }
         }
     }
-    return 0;
+    int *resarray=&resarr[i][j];
+    return *resarray;
 }
 struct student
 {
 	char roll[20];
 	char name[50];
-};
-struct mat{
-	int mat1[2][2];
-	int mat2[2][2];
-	int ans;
+	int ans[2][2];
+	int ans2[2][2];
+
 };
 void main()
 {
-	int i,j;
+	int i,j,*p, newarr[2][2],newarr1[2][2];
 	struct student s;
 	FILE *fp;
-	struct mat q1, q2;
-	q1.mat1={{2,4}
-	         {3,6}} ;
-	q1.mat2={{6,2}
-	         {0,6}};
+	int mat1[2][2]={2,4,3,6};
+	int mat2[2][2]={6,2,0,6};
 	//prompting input
 	printf("Quiz");
 	printf("\n\n Please enter your name:");
@@ -74,35 +72,95 @@ void main()
     { 
         for(j=0;j<2;j++)
         {
-            printf("%d  ", q1.mat1[i][j]);
+            printf("%d  ",mat1[i][j]);
         }
 
         printf("\n");
     }
     
-    printf("  +  ");
+    printf("  +  \n");
      
     for(i=0;i<2;i++)
     { 
         for(j=0;j<2;j++)
         {
-            printf("%d  ", q1.mat2[i][j]);
+            printf("%d  ", mat2[i][j]);
         }
 
         printf("\n");
     }
     // prompting answer
-    printf("\n\nEnter your answer:");
+    printf("\n\nEnter your answer:\n\n");
     for(i=0;i<2;i++)
     { 
         for(j=0;j<2;j++)
         {
-        	printf("Enter for row%d col%d", i, j);
-            scanf("%d",q1.ans[i][j]);
+        	printf("Enter for row%d col%d ", i, j);
+            scanf("%d",&s.ans[i][j]);
         }
 
         printf("\n");
     }
+    newarr[2][2]=add(mat1,mat2,2,2);
+    int count=0;
+    for(i=0;i<2;i++)
+    {
+    	for(j=0;j<2;j++)
+    	{
+    		if(newarr[i][j]==s.ans[i][j]);
+    		count++;
+		}
+	}
+    fprintf("\nyour marks for this question are: %d\n",count);
+    printf("\n\nQ2.");
+	printf("\n");
+	// SHowing question2
+	for(i=0;i<2;i++)
+    { 
+        for(j=0;j<2;j++)
+        {
+            printf("%d  ",mat1[i][j]);
+        }
+
+        printf("\n");
+    }
+    
+    printf("  -  \n");
+     
+    for(i=0;i<2;i++)
+    { 
+        for(j=0;j<2;j++)
+        {
+            printf("%d  ", mat2[i][j]);
+        }
+
+        printf("\n");
+    }
+    // prompting answer
+    printf("\n\nEnter your answer:\n\n");
+    for(i=0;i<2;i++)
+    { 
+        for(j=0;j<2;j++)
+        {
+        	printf("Enter for row%d col%d ", i, j);
+            scanf("%d",&s.ans2[i][j]);
+        }
+
+        printf("\n");
+    }
+    int r2=2,c2=2;
+    int newarr1[2][2]=subtraction(mat1,mat2,r2,c2);
+    int count2=0;
+    for(i=0;i<2;i++)
+    {
+    	for(j=0;j<2;j++)
+    	{
+    		if(newarr1[i][j]==s.ans2[i][j])
+    		count2++;
+		}
+	}
+    fprintf("\nyour marks for this question are: %d\n",count2);
+    
 	
 	fp= fopen("quiz.txt", "w");
 	if(fp == NULL) 
@@ -111,6 +169,7 @@ void main()
       exit(1);             
    }
    fprintf(fp, "%s", s.name);
-   fprintf(fp, "%s", s.roll); 
+   fprintf(fp,"\n");
+   fprintf(fp, "%d", s.roll); 
 	fclose(fp);
 }
