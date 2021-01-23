@@ -291,7 +291,7 @@ void main()      // By Muhammad Taha Raees
 	    printf("\n5: Transpose");
 	    printf("\n6: Singular");
 	    printf("\n7: Symmetry");
-	    scanf("%d", &op);
+	    scanf("%d\n", &op);
 	}
 	
 	// checking conditions, if condition meets, call function
@@ -365,7 +365,7 @@ void main()      // By Muhammad Taha Raees
 		case 6:
 			if ((r1==2) && (c1==2))
 				singular(arr1);
-			else printf("error!Eet a 2X2 matrix");
+			else printf("error!Enter a 2X2 matrix");
 			break;
 		case 7:
 					if(n==1)
