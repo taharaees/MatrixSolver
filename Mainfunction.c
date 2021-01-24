@@ -290,7 +290,7 @@ void main()      // By Muhammad Taha Raees
 	    printf("\n4: Determinant(only for 2 by 2 matrix)");
 	    printf("\n5: Transpose");
 	    printf("\n6: Singular");
-	    printf("\n7: Symmetry");
+	    printf("\n7: Symmetry\n");
 	    scanf("%d", &op);
 	}
 	
