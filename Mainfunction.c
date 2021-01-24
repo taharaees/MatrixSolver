@@ -291,7 +291,7 @@ void main()      // By Muhammad Taha Raees
 	    printf("\n5: Transpose");
 	    printf("\n6: Singular");
 	    printf("\n7: Symmetry");
-	    scanf("%d\n", &op);
+	    scanf("%d", &op);
 	}
 	
 	// checking conditions, if condition meets, call function
