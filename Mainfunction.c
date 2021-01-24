@@ -30,7 +30,7 @@ void symmetric(int r1,int c1,int arr1[10][10])  // Anum Aamir
         printf("This matrix is a Symmetric matrix: \n");
 
         for(i=0;i<r1;i++)
-        { 
+        {  
             for(j=0;j<c1;j++)
             {
                 printf("%d  ", arr1[i][j]);
