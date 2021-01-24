@@ -328,7 +328,7 @@ void main()      // By Muhammad Taha Raees
 			}
 			break;
 		case 3:
-			if ((r1==2) && (c1==2))
+			if ((r1==2) && (c1==2) && (n==1))
 			inverse(arr1);
 			else printf("error!Eet a 2X2 matrix");
 			
