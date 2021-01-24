@@ -31,7 +31,7 @@ int subtraction (int r, int c, int arr1[10][10], int arr2[10][10])  // by Muhamm
 	}
 	printf("\nSubtraction of two matrices: \n");
 	for(i=0; i<r; ++i)
-    {
+    { 
         for (j=0; j<c; ++j)
 		{
             printf("%d   ", resarr[i][j]);
